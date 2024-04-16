@@ -61,7 +61,7 @@ function OnlineSubmission() {
     formData.append("file", file);
     console.log(topic, title, name, corrA, corrAE, mobile, affiliation, file);
     const result = await axios.post(
-      "http://localhost:3000/upload-files",
+      "https://journal-app-eight-gold.vercel.app/upload-files",
       formData,
       { headers: { "Content-Type": "multipart/form-data" } }
     );
