@@ -1,0 +1,36 @@
+/* Home.css
+
+.home {
+  position: relative;
+  padding-top: 185px;
+}
+
+.aim-scope {
+  position: relative;
+}
+
+.i1 {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.welcome-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.welcome-message h1 {
+  font-size: 24px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.welcome-message p {
+  font-size: 18px;
+  color: #fff;
+  margin: 0;
+} */

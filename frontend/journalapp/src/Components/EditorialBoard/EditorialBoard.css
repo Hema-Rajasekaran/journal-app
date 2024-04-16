@@ -1,0 +1,32 @@
+.editorial-board {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  padding-top: 8px;
+  /* margin-top: 380px; */
+}
+
+.editor {
+  color: white;
+  background-color: rgb(5, 5, 75);
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+.editor h2 {
+  color: #333;
+}
+
+.editor p {
+  font-weight: bold;
+  font-size: 16px;
+  margin: 5px 0;
+  font-style: roboto;
+}
+
+/* Add more CSS styles as needed */
+@media screen and (max-width: 768px) {
+  .editor p {
+    font-size: 10px;
+  }
+}

@@ -1,0 +1,26 @@
+.aim {
+  padding-top: 40px;
+}
+.aim-scope-content {
+  background-color: hsl(195, 85%, 32%);
+  padding: 20px;
+  border-radius: 8px;
+}
+.kk {
+  background-position: 50px 20px;
+  background-size: 20px 20px;
+  background-size: contain;
+  /* position: relative; */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  width: 100%;
+  height: 100vh;
+}
+.aim-scope-content p {
+  margin: 10px 0;
+  line-height: 1.5;
+  font-size: large;
+  font-weight: bold;
+  color: white;
+  text-align: justify;
+}
