@@ -12,7 +12,9 @@ function Archives() {
   }, []);
 
   const getPdf = async () => {
-    const result = await axios.get("http://localhost:3000/get-files");
+    const result = await axios.get(
+      "https://journal-app-eight-gold.vercel.app/get-files"
+    );
     console.log(result.data.data);
     setAllImage(result.data.data);
   };
