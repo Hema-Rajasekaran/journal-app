@@ -17,7 +17,11 @@ function Archives() {
     setAllImage(result.data.data);
   };
   const showPdf = (pdf) => {
-    window.open(`http://localhost:3000/files/${pdf}`, "_blank", "noreferrer");
+    window.open(
+      `https://journal-app-eight-gold.vercel.app/files/${pdf}`,
+      "_blank",
+      "noreferrer"
+    );
   };
   return (
     <div>
