@@ -3,12 +3,13 @@ const app = express();
 const mongoose = require("mongoose");
 app.use(express.json());
 const cors = require("cors");
-app.options("", cors(corsConfig));
+
 const corsConfig = {
   origin: "*",
   Credential: true,
   mathods: ["GET", "POST", "PUT", "DELETE"],
 };
+app.options("", cors(corsConfig));
 app.use(cors(corsConfig));
 app.use("/files", express.static("files"));
 
