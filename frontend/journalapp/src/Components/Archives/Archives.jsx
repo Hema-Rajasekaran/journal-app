@@ -13,14 +13,14 @@ function Archives() {
 
   const getPdf = async () => {
     const result = await axios.get(
-      "https://journal-app-eight-gold.vercel.app/get-files"
+      "https://journal-jwz0squyw-hema-rs-projects.vercel.app/get-files"
     );
     console.log(result.data.data);
     setAllImage(result.data.data);
   };
   const showPdf = (pdf) => {
     window.open(
-      `https://journal-app-eight-gold.vercel.app/files/${pdf}`,
+      `https://journal-jwz0squyw-hema-rs-projects.vercel.app/files/${pdf}`,
       "_blank",
       "noreferrer"
     );
