@@ -12,8 +12,7 @@ const corsConfig = {
 app.use(cors(corsConfig));
 app.use("/files", express.static("files"));
 
-const mongoUrl =
-  "mongodb+srv://admin:admin@journal.p6kw1o3.mongodb.net/?retryWrites=true&w=majority&appName=Journal";
+const mongoUrl = "mongodb+srv://admin:admin@journal.p6kw1o3.mongodb.net/";
 
 mongoose
   .connect(mongoUrl, { useNewUrlParser: true })
