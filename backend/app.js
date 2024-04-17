@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 app.use(express.json());
 const cors = require("cors");
+app.options("", cors(corsConfig));
 const corsConfig = {
   origin: "*",
   Credential: true,
