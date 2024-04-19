@@ -18,7 +18,7 @@ function Archives() {
       );
       setAllImage(response.data.data || []); // Ensure array default value
     } catch (error) {
-      console.error("Error fetching PDFs:", error);
+      console.error("Error fetching PDFs:", error.message);
       setError("Error fetching PDFs. Please try again later.");
     } finally {
       setLoading(false);
