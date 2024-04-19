@@ -5,7 +5,7 @@ app.use(express.json());
 const cors = require("cors");
 
 const corsConfig = {
-  origin: "*",
+  origin: "https://i-j-r-a-s-t-e-m.vercel.app/",
   credentials: true,
   mathods: ["GET", "POST", "PUT", "DELETE"],
 };
