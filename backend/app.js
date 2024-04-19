@@ -5,7 +5,7 @@ app.use(express.json());
 const cors = require("cors");
 
 const corsConfig = {
-  origin: "https://journal-app-eight-gold.vercel.app/",
+  origin: "*",
   credentials: true,
   mathods: ["GET", "POST", "PUT", "DELETE"],
 };
