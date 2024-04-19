@@ -54,10 +54,11 @@ app.get("/get-files", async (req, res) => {
   try {
     const data = await PdfSchema.find({});
     res.send({ status: "ok", data });
-  } catch (error) {
-    console.error("Error fetching files:", error);
-    res.status(500).json({ status: "error" });
   }
+  // } catch (error) {
+  //   console.error("Error fetching files:", error);
+  //   res.status(500).json({ status: "error" });
+  // }
 });
 
 app.get("/", async (req, res) => {
