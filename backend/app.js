@@ -125,7 +125,7 @@ app.post("/upload-files", upload.single("file"), async (req, res, next) => {
 
 app.get("/get-files", async (req, res, next) => {
   try {
-    const data = await PdfSchema.find({});
+    const data = PdfSchema.find({});
     res.send({ status: "ok", data });
   } catch (error) {
     console.error("Error fetching files:", error);
