@@ -11,24 +11,12 @@ function Archives() {
     getPdf();
   }, []);
 
-  // const getPdf = async () => {
-  //   const result = await axios.get(
-  //     `https://journal-app-eight-gold.vercel.app/get-files`
-  //   );
-  //   console.log(result.data.data);
-  //   setAllImage(result.data.data);
-  // };
   const getPdf = async () => {
-    try {
-      const response = await axios.get(
-        `https://journal-app-eight-gold.vercel.app/get-files`
-      );
-      console.log(response.data); // Log the entire response for debugging
-      setAllImage(response.data.data || []); // Assuming response structure is { data: [...] }
-    } catch (error) {
-      console.error("Error fetching PDFs:", error);
-      // Handle error state here, such as setting an error message in state
-    }
+    const result = await axios.get(
+      `https://journal-app-eight-gold.vercel.app/get-files`
+    );
+    console.log(result.data.data);
+    setAllImage(result.data.data);
   };
   const showPdf = (pdf) => {
     window.open(
