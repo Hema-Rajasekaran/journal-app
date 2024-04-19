@@ -44,7 +44,7 @@ function Class() {
   return (
     <Router>
       <div>
-        <input type="checkbox" className="menu-checkbox" id="menu-toggle" />
+        <input type="checkbox" className="menu-checkbo" id="menu-toggle" />
         <label className="menu-toggle" htmlFor="menu-toggle">
           <span className="menu-icon"></span>
           <span className="menu-icon"></span>
