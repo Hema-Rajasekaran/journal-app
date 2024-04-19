@@ -5,11 +5,11 @@ app.use(express.json());
 const cors = require("cors");
 
 const corsConfig = {
-  origin: "https://i-j-r-a-s-t-e-m.vercel.app/",
+  origin: "https://i-j-r-a-s-t-e-m.vercel.app",
   credentials: true,
-  mathods: ["GET", "POST", "PUT", "DELETE"],
+  methods: ["GET", "POST", "PUT", "DELETE"],
 };
-app.options("", cors(corsConfig));
+app.options("*", cors(corsConfig));
 app.use(cors(corsConfig));
 app.use("/files", express.static("files"));
 
@@ -17,11 +17,11 @@ const mongoUrl =
   "mongodb+srv://admin:admin@journal.p6kw1o3.mongodb.net/?retryWrites=true&w=majority&appName=Journal";
 
 mongoose
-  .connect(mongoUrl, { useNewUrlParser: true })
+  .connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log("Connected to database");
   })
-  .catch((e) => console.log(e));
+  .catch((e) => console.log("Database connection error:", e));
 
 const multer = require("multer");
 
@@ -34,32 +34,37 @@ const storage = multer.diskStorage({
     cb(null, uniqueSuffix + file.originalname);
   },
 });
-require("./pdfDetails");
-const PdfSchema = mongoose.model("PdfDetails");
+
+const PdfSchema = require("./pdfDetails"); // Assuming pdfDetails.js exports the PdfSchema model
 const upload = multer({ storage: storage });
+
 app.post("/upload-files", upload.single("file"), async (req, res) => {
-  console.log(req.file);
-  const title = req.body.title;
-  const topic = req.body.topic;
-  const fileName = req.file.filename;
   try {
-    await PdfSchema.create({ title: title, topic: topic, pdf: fileName });
+    const { title, topic } = req.body;
+    const fileName = req.file.filename;
+    await PdfSchema.create({ title, topic, pdf: fileName });
     res.send({ status: "ok" });
   } catch (error) {
-    res.json({ status: "error" });
+    console.error("File upload error:", error);
+    res.status(500).json({ status: "error" });
   }
 });
+
 app.get("/get-files", async (req, res) => {
   try {
-    PdfSchema.find({}).then((data) => {
-      res.send({ status: "ok", data: data });
-    });
-  } catch (error) {}
+    const data = await PdfSchema.find({});
+    res.send({ status: "ok", data });
+  } catch (error) {
+    console.error("Error fetching files:", error);
+    res.status(500).json({ status: "error" });
+  }
 });
+
 app.get("/", async (req, res) => {
   res.send("Success!!!");
 });
 
-app.listen(3000, () => {
-  console.log("Server Started");
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server started on port ${PORT}`);
 });

@@ -1,23 +1,30 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useEffect } from "react";
 import "./archives.css";
 
 function Archives() {
-  const [allImage, setAllImage] = useState(null);
+  const [allImage, setAllImage] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     getPdf();
   }, []);
 
   const getPdf = async () => {
-    const result = await axios.get(
-      `https://journal-app-eight-gold.vercel.app/get-files`
-    );
-    console.log(result.data.data);
-    setAllImage(result.data.data);
+    try {
+      const response = await axios.get(
+        `https://journal-app-eight-gold.vercel.app/get-files`
+      );
+      setAllImage(response.data.data || []); // Ensure array default value
+    } catch (error) {
+      console.error("Error fetching PDFs:", error);
+      setError("Error fetching PDFs. Please try again later.");
+    } finally {
+      setLoading(false);
+    }
   };
+
   const showPdf = (pdf) => {
     window.open(
       `https://journal-app-eight-gold.vercel.app/files/${pdf}`,
@@ -25,25 +32,30 @@ function Archives() {
       "noreferrer"
     );
   };
+
   return (
     <div>
       <div className="uploaded">
         <div className="output-div">
-          {allImage == null
-            ? ""
-            : allImage.map((data) => {
-                return (
-                  <div className="inner-div">
-                    <h6>Title:{data.title}</h6>
-                    <button
-                      className="btn-btn-primary"
-                      onClick={() => showPdf(data.pdf)}
-                    >
-                      Show Pdf
-                    </button>
-                  </div>
-                );
-              })}
+          {loading ? (
+            <p>Loading...</p>
+          ) : error ? (
+            <p>{error}</p>
+          ) : allImage.length === 0 ? (
+            <p>No PDFs found.</p>
+          ) : (
+            allImage.map((data) => (
+              <div className="inner-div" key={data._id}>
+                <h6>Title: {data.title}</h6>
+                <button
+                  className="btn-btn-primary"
+                  onClick={() => showPdf(data.pdf)}
+                >
+                  Show Pdf
+                </button>
+              </div>
+            ))
+          )}
         </div>
       </div>
     </div>
