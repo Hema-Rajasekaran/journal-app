@@ -12,15 +12,13 @@ function Archives() {
   }, []);
 
   const getPdf = async () => {
-    const result = await axios.get(
-      `https://journal-app-eight-gold.vercel.app/get-files`
-    );
+    const result = await axios.get(`${window.location.origin}/get-files`);
     console.log(result.data.data);
     setAllImage(result.data.data);
   };
   const showPdf = (pdf) => {
     window.open(
-      `https://journal-app-eight-gold.vercel.app/files/${pdf}`,
+      `${window.location.origin}/files/${pdf}`,
       "_blank",
       "noreferrer"
     );
