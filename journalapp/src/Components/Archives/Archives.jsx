@@ -16,7 +16,10 @@ function Archives() {
       const response = await axios.get(
         `https://journal-app-eight-gold.vercel.app/get-files`
       );
-      setAllImage(response.data.data || []); // Ensure array default value
+      if (response.data.status === "error") {
+        throw new Error("Error fetching PDFs.");
+      }
+      setAllImage(response.data.data || []);
     } catch (error) {
       console.error("Error fetching PDFs:", error.message);
       setError("Error fetching PDFs. Please try again later.");
