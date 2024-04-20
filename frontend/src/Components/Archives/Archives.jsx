@@ -12,16 +12,12 @@ function Archives() {
   }, []);
 
   const getPdf = async () => {
-    const result = await axios.get(`${window.location.origin}/get-files`);
+    const result = await axios.get("http://localhost:3000/get-files");
     console.log(result.data.data);
     setAllImage(result.data.data);
   };
   const showPdf = (pdf) => {
-    window.open(
-      `${window.location.origin}/files/${pdf}`,
-      "_blank",
-      "noreferrer"
-    );
+    window.open(`http://localhost:3000/files/${pdf}`, "_blank", "noreferrer");
   };
   return (
     <div>

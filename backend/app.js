@@ -2,30 +2,30 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const mongoose = require("mongoose");
-app.use(express.json());
 const cors = require("cors");
-
-const corsConfig = {
-  origin: "https://i-j-r-a-s-t-e-m.vercel.app",
-  credentials: true,
-  methods: ["GET", "POST", "PUT", "DELETE"],
-};
-app.options("*", cors(corsConfig));
-app.use(cors(corsConfig));
+const PdfSchema = require("./pdfDetails"); // Assuming pdfDetails.js exports the PdfSchema model
+// Middleware
+app.use(express.json());
+app.use(
+  cors({
+    origin: "*",
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+  })
+);
 app.use("/files", express.static("files"));
 
+// MongoDB connection
 const mongoUrl =
   "mongodb+srv://admin:admin@journal.p6kw1o3.mongodb.net/?retryWrites=true&w=majority&appName=Journal";
 
 mongoose
-  .connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => {
-    console.log("Connected to database");
-  })
+  .connect(mongoUrl)
+  .then(() => console.log("Connected to database"))
   .catch((e) => console.log("Database connection error:", e));
 
+// Multer configuration for file uploads
 const multer = require("multer");
-
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, "./files");
@@ -35,10 +35,9 @@ const storage = multer.diskStorage({
     cb(null, uniqueSuffix + file.originalname);
   },
 });
-
-const PdfSchema = require("./pdfDetails"); // Assuming pdfDetails.js exports the PdfSchema model
 const upload = multer({ storage: storage });
 
+// Routes
 app.post("/upload-files", upload.single("file"), async (req, res) => {
   try {
     const { title, topic } = req.body;
@@ -47,7 +46,7 @@ app.post("/upload-files", upload.single("file"), async (req, res) => {
     res.send({ status: "ok" });
   } catch (error) {
     console.error("File upload error:", error);
-    res.status(500).json({ status: "error" });
+    res.status(500).json({ status: "error", error: error.message });
   }
 });
 
@@ -57,14 +56,12 @@ app.get("/get-files", async (req, res) => {
     res.send({ status: "ok", data });
   } catch (error) {
     console.error("Error fetching files:", error);
-    res.status(500).json({ status: "error" });
+    res.status(500).json({ status: "error", error: error.message });
   }
 });
 
-app.get("/", async (req, res) => {
-  app.use(express.static(path.resolve(__dirname, "journalapp", "build")));
-  res.sendFile(path.resolve(__dirname, "journalapp", "build", "index.html"));
-  res.send("Success!!!");
+app.get("/", (req, res) => {
+  res.send("success!!");
 });
 
 const PORT = process.env.PORT || 3000;
