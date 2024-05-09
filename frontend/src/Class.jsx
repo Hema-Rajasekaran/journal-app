@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import Home from "./Components/Home/Home";
 import AboutUs from "./Components/About Us/AboutUs";
 import ContactUs from "./Components/Contact Us/ContactUs";
-import pic from "../src/Components/Images/pick.jpeg";
+import pic from "../src/Components/Images/ignite.png";
 import AimScope from "./Components/Aim and Scope/AimScope";
 import Topics from "./Components/Topics/Topics";
 import EditorialBoard from "./Components/EditorialBoard/EditorialBoard";
@@ -22,10 +22,10 @@ function Class() {
     switch (currentPath) {
       case "home":
         return <Home />;
-      case "about":
-        return <AboutUs />;
-      case "aim":
-        return <AimScope />;
+      // case "about":
+      //   return <AboutUs />;
+      // case "aim":
+      //   return <AimScope />;
       case "topic":
         return <Topics />;
       case "online":
@@ -67,7 +67,7 @@ function Class() {
                 Home
               </button>
             </li>
-            <li>
+            {/* <li>
               <button
                 onClick={() => {
                   setCurrentPath("about");
@@ -86,7 +86,7 @@ function Class() {
               >
                 Aim & Scope
               </button>
-            </li>
+            </li> */}
             <li>
               <button
                 onClick={() => {

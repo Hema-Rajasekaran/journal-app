@@ -1,0 +1,171 @@
+/* Class.css */
+/* Global styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Navbar styles */
+.navbar {
+  background-color: #10012c;
+  color: #fff;
+  width: 97%;
+  height: 130px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  margin-top: -150px;
+}
+
+.logokk {
+  width: 140px; /* Adjust size as needed */
+  height: auto;
+  margin-right: 20px;
+}
+
+.title {
+  margin: 0;
+  font-size: 40px;
+  margin-right: 500px; 
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 100%; /* Position the ul below the navbar */
+  left: 0;
+  background-color: #10012c;
+  width: 60%;
+  padding-right: 20px;
+  margin-top: -50px;
+  display: flex; /* Change display to flex */
+  flex-wrap: nowrap; /* Ensure items stay in one line */
+  transform: translate(35%, -1310%); /* Adjust translation if needed */
+  z-index: 1000;
+}
+
+li {
+  margin-right: 10px; /* Adjust margin between items */
+}
+
+button {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px 5px;
+}
+button:hover {
+  background-color: #555;
+  border-radius: 10px;
+}
+
+/* Menu button styles */
+.menu-button {
+  display: none; /* Initially hide on larger screens */
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Toggler styles */
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+}
+
+.menu-icon {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  margin-bottom: 5px;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .logokk {
+    width: 50px;
+  }
+  .title {
+    font-size: 13px;
+  }
+
+  .title ul {
+    flex-direction: column;
+    z-index: 1000;
+  }
+
+  .title li {
+    margin-bottom: 10px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .menu-button {
+    display: block; /* Show on smaller screens */
+    margin-bottom: 10px; /* Adjust spacing as needed */
+  }
+
+  ul {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    background-color: #10012c;
+    width: 100%;
+    padding: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  ul.active {
+    transform: translateX(0%);
+  }
+}
+@media screen and (max-width: 468px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .logokk {
+    width: 50px;
+  }
+  .title {
+    font-size: 10px;
+  }
+
+  ul {
+    flex-direction: column;
+    z-index: 1000;
+  }
+
+  li {
+    margin-bottom: 10px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .menu-button {
+    display: block; /* Show on smaller screens */
+    margin-bottom: 10px; /* Adjust spacing as needed */
+  }
+
+  ul.active {
+    transform: translateX(0%);
+  }
+}

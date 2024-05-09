@@ -7,14 +7,14 @@
 }
 .footnav p {
   color: #ffff;
-  font-size: 20px;
+  font-size: 15px;
   align-items: center;
   display: flex;
   font-weight: bold;
   padding-left: 40px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 468px) {
   .footnav p {
-    font-size: 15px;
+    font-size: 10px;
   }
 }

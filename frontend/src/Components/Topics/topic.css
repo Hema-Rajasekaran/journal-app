@@ -1,20 +1,13 @@
-.two {
-  padding-top: 10px;
-}
-/* .top {
-  margin-top: 10px;
-} */
 .topic-container {
   max-width: 600px;
-  /* transform: translateY(-20%); */
-  margin: 0 auto;
-  /* margin-top: 350px; */
+  margin: 50px auto;
   padding: 20px;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 28px;
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #bbbb06;
+  text-align: center; /* Center-align the content */
 }
 
 .topic-container h2 {

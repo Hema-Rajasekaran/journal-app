@@ -1,7 +1,7 @@
 import React from "react";
 import "./EditorialBoard.css"; // Import CSS file for styling
 import Footer from "../Footer";
-
+//https://journal-app-backend-3466.onrender.com
 function EditorialBoard() {
   return (
     <div className="editorial-board">
@@ -108,3 +108,16 @@ function EditorialBoard() {
 }
 
 export default EditorialBoard;
+//const downloadFile = (filename) => {
+  //   if (!filename) {
+  //     console.error('Filename is undefined');
+  //     return;
+  //   }
+  //   const fileUrl = `http://localhost:3000/files/${encodeURIComponent(filename)}`;
+  //   const link = document.createElement('a');
+  //   link.href = fileUrl;
+  //   link.setAttribute('download', filename); // Suggests a filename to save as
+  //   document.body.appendChild(link);
+  //   link.click();
+  //   document.body.removeChild(link);
+  // };

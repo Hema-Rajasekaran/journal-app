@@ -6,7 +6,9 @@ import "./Scrollingbar.css"; // Import CSS file for styling
 const Scrollingbar = () => {
   return (
     <div className="scroll-container">
-      <div className="scroll-text">Fast Review Process</div>
+      <div className="scroll-text">
+        Submit Your Papers Today!
+      </div>
     </div>
   );
 };

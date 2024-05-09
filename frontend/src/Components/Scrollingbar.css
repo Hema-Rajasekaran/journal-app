@@ -11,7 +11,6 @@
   white-space: nowrap;
   font-size: 25px;
   font-weight: bold;
-
   color: rgb(5, 5, 136);
   animation: scrollAnimation 25s linear infinite;
 }
@@ -22,5 +21,39 @@
   }
   100% {
     transform: translateX(-100%);
+  }
+}
+@media screen and (max-width: 768px) {
+  .scroll-container {
+    width: 100%;
+    overflow: hidden;
+    z-index: 1000;
+    height: 50px;
+    /* position: fixed; */
+  }
+  .scroll-text {
+    white-space: nowrap;
+    font-size: 25px;
+    margin-top: 20px;
+    font-weight: bold;
+    color: rgb(5, 5, 136);
+    animation: scrollAnimation 25s linear infinite;
+  }
+}
+@media screen and (max-width: 400px) {
+  .scroll-container {
+    width: 100%;
+    overflow: hidden;
+    z-index: 1000;
+    height: 50px;
+    /* position: fixed; */
+  }
+  .scroll-text {
+    white-space: nowrap;
+    font-size: 20px;
+    margin-top: 20px;
+    font-weight: bold;
+    color: rgb(5, 5, 136);
+    animation: scrollAnimation 25s linear infinite;
   }
 }

@@ -11,8 +11,7 @@ const AboutUs = () => {
       <div className="about-us-container">
         <h2>About Us</h2>
         <p>
-          International Journal of Arts, Science, Technologies, Education and
-          Management is an international, peer-reviewed, open-access, online
+          Ignite Freaks Journal App is an international, peer-reviewed, open-access, online
           journal. It aims to provide an online platform to promote excellence
           and advancement in the different areas of arts, science, technologies,
           education, and management (IJRASTEM).
