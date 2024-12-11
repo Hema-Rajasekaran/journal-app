@@ -112,7 +112,7 @@ function Navbar() {
                   handleLinkClick();
                 }}
               >
-                Topic
+                Topics
               </button>
             </li>
             <li>
